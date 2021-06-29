@@ -4,7 +4,10 @@
         {% for recommendation in recommendations %}
         <h2> {{recommendation['title']}} </h2>
         <h3> by {{recommendation['subtitle']}} </h3>
-        <img src = {{recommendation['images']['coverart']}}> <!-- why doesn't this fail out -->
+        {% if  recommendation['images'] %}
+        <img src = {{recommendation['images']['coverart']}}>
+        {% endif %}
+        <!-- why doesn't this fail out -->
             {% if recommendation['hub']['actions'] %}
             <br>
             <a href={{recommendation['hub']['actions'][1]['uri']}}>Audio Sample</a>
